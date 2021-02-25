@@ -32,7 +32,6 @@ export COLOR_WHITE='\e[1;37m'
 
 # From http://bashrcgenerator.com
 echo export PS1=\""\[\033[38;5;16m\]\[\033[48;5;230m\]\u\[$(tput sgr0)\]@\w>\[$(tput sgr0)\]"\" >> ~/.bashrc
-
 echo 
 echo "-------- Finished Setup. --------"
 echo

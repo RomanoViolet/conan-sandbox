@@ -99,10 +99,14 @@ RUN \
   pip3 install --upgrade autopep8 pylint && \
   #
   # Install Python-Clang bindings
-  pip3 install --upgrade clang && \
+  #pip3 install --upgrade clang && \
+  wget https://dl.bintray.com/conan/installers/conan-ubuntu-64_1_33_1.deb && \
+  dpkg --install ./conan-ubuntu-64_1_33_1.deb && \
+  #apt install conan-ubuntu-64_1_33_1.deb && \
+  rm -rf ./conan-ubuntu-64_1_33_1.deb && \
   #
-  # Install Conan
-  pip3 install conan && \
+  # For some damn reason, conan does not install correctly here.
+  # pip3 install conan --upgrade && \
   #
   apt-get purge -y --auto-remove build-essential && \
   apt-get purge -y --auto-remove software-properties-common && \
@@ -113,6 +117,7 @@ RUN \
   apt-get autoremove -y && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
+  #
   #update-alternatives --install /usr/bin/clang clang /usr/bin/clang-8 100 && \
   #update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-8 100 && \
   #update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-8 100 && \
